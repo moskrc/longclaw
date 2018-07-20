@@ -1,27 +1,26 @@
 from __future__ import absolute_import, unicode_literals
 
 from django.conf import settings
-from django.conf.urls import include, url
+from django.urls import include, path
 from django.contrib import admin
 
 from search import views as search_views
-from wagtail.wagtailadmin import urls as wagtailadmin_urls
-from wagtail.wagtailcore import urls as wagtail_urls
-from wagtail.wagtaildocs import urls as wagtaildocs_urls
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.core import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
 from longclaw import urls as longclaw_urls
 
 urlpatterns = [
-    url(r'^django-admin/', include(admin.site.urls)),
+    path('django-admin/', include(admin.site.urls)),
 
-    url(r'^admin/', include(wagtailadmin_urls)),
-    url(r'^documents/', include(wagtaildocs_urls)),
+    path('django/', include(wagtailadmin_urls)),
+    path('django/', include(wagtaildocs_urls)),
 
-    url(r'^search/$', search_views.search, name='search'),
+    path('django/', include(search_views.search), name='search'),
 
-    url(r'', include(longclaw_urls)),
-    url(r'', include(wagtail_urls))
+    path('', include(longclaw_urls)),
+    path('', include(wagtail_urls)),
 ]
-
 
 if settings.DEBUG:
     from django.conf.urls.static import static

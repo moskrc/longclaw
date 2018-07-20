@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path
 from longclaw.longclawshipping import api
 from longclaw.settings import API_URL_PREFIX
 
@@ -14,19 +14,13 @@ address_detail = api.AddressViewSet.as_view({
 })
 
 urlpatterns = [
-    url(API_URL_PREFIX + r'addresses/$',
-        address_list,
-        name='longclaw_address_list'),
-    url(API_URL_PREFIX + r'addresses/(?P<pk>[0-9]+)/$',
-        address_detail,
-        name='longclaw_address_detail'),
-    url(API_URL_PREFIX + r'shipping/cost/$',
-        api.shipping_cost,
-        name='longclaw_shipping_cost'),
-    url(API_URL_PREFIX + r'shipping/countries/$',
-        api.shipping_countries,
-        name='longclaw_shipping_countries'),
-    url(API_URL_PREFIX + r'shipping/countries/(?P<country>[a-zA-Z]+)/$',
-        api.shipping_options,
-        name='longclaw_shipping_options')
+    path(API_URL_PREFIX + 'addresses/', address_list, name='longclaw_address_list'),
+
+    path(API_URL_PREFIX + 'addresses/<int:pk>/', address_list, name='longclaw_address_detail'),
+
+    path(API_URL_PREFIX + 'shipping/cost/', api.shipping_cost, name='longclaw_shipping_cost'),
+
+    path(API_URL_PREFIX + 'shipping/countries/', api.shipping_countries, name='longclaw_shipping_countries'),
+
+    path(API_URL_PREFIX + 'shipping/countries/<str:country>/', api.shipping_options, name='longclaw_shipping_options'),
 ]
