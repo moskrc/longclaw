@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
-from wagtail.wagtailcore.models import Page
+from wagtail.core.models import Page
 from longclaw.utils import ProductVariant
 from longclaw.contrib.productrequests.models import ProductRequest
 
