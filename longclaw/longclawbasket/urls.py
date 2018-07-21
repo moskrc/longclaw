@@ -29,7 +29,7 @@ urlpatterns = [
 
     path(API_URL_PREFIX + 'basket/<int:variant_id>/', basket_detail, name='longclaw_basket_detail'),
 
-    path(API_URL_PREFIX + 'basket/<int:variant_id>/count/$', item_count, name='longclaw_basket_item_count'),
+    path(API_URL_PREFIX + 'basket/<int:variant_id>/count/', item_count, name='longclaw_basket_item_count'),
 
     path('basket/', views.BasketView.as_view(), name="longclaw_basket")
 ]

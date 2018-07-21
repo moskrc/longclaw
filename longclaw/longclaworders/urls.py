@@ -24,13 +24,13 @@ urlpatterns = [
     ),
 
     path(
-        PREFIX + '<int:pk>/fulfill/$',
+        PREFIX + '<int:pk>/fulfill/',
         fulfill_order,
         name='longclaw_fulfill_order'
     ),
 
     path(
-        PREFIX + '<int:pk>/refund/$',
+        PREFIX + '<int:pk>/refund/',
         refund_order,
         name='longclaw_refund_order'
     )
