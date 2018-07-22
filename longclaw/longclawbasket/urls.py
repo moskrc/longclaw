@@ -1,7 +1,8 @@
-from django.urls import path
+from django.urls import path, re_path
 from longclaw.longclawbasket import api
 from longclaw.longclawbasket import views
 from longclaw.settings import API_URL_PREFIX
+
 
 basket_list = api.BasketViewSet.as_view({
     'get': 'list',
@@ -20,6 +21,8 @@ item_count = api.BasketViewSet.as_view({
 total_items = api.BasketViewSet.as_view({
     'get': 'total_items'
 })
+
+API_URL_PREFIX = API_URL_PREFIX.lstrip('/')
 
 urlpatterns = [
 

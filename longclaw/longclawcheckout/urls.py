@@ -2,6 +2,9 @@ from django.urls import path
 from longclaw.longclawcheckout import api, views
 from longclaw.settings import API_URL_PREFIX
 
+API_URL_PREFIX = API_URL_PREFIX.lstrip('/')
+
+
 urlpatterns = [
     path(API_URL_PREFIX + 'checkout/', api.capture_payment, name='longclaw_checkout'),
 

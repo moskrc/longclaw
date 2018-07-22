@@ -2,6 +2,8 @@ from django.urls import path
 from longclaw.contrib.productrequests import api, views
 from longclaw.settings import API_URL_PREFIX
 
+API_URL_PREFIX = API_URL_PREFIX.lstrip('/')
+
 request_list = api.ProductRequestViewSet.as_view({
     'get': 'list',
     'post': 'create'

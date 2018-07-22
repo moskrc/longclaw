@@ -3,6 +3,9 @@ from longclaw.longclaworders import api
 
 from longclaw.settings import API_URL_PREFIX
 
+
+API_URL_PREFIX = API_URL_PREFIX.lstrip('/')
+
 orders = api.OrderViewSet.as_view({
     'get': 'retrieve'
 })

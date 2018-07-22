@@ -2,6 +2,8 @@ from django.urls import path
 from longclaw.longclawshipping import api
 from longclaw.settings import API_URL_PREFIX
 
+API_URL_PREFIX = API_URL_PREFIX.lstrip('/')
+
 address_list = api.AddressViewSet.as_view({
     'get': 'list',
     'post': 'create'

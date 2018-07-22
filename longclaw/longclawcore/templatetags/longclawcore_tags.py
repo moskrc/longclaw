@@ -13,4 +13,4 @@ def longclaw_client_bundle():
 
 @register.simple_tag
 def longclaw_api_url_prefix():
-    return settings.API_URL_PREFIX
+    return '{}'.format(settings.API_URL_PREFIX)
