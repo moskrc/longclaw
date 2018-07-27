@@ -12,7 +12,7 @@ urlpatterns = [
 
     path(API_URL_PREFIX + 'checkout/token/', api.create_token, name='longclaw_checkout_token'),
 
-    path(API_URL_PREFIX + 'checkout/', views.CheckoutView.as_view(), name='longclaw_checkout_view'),
+    path('checkout/', views.CheckoutView.as_view(), name='longclaw_checkout_view'),
 
-    path(API_URL_PREFIX + 'checkout/success/<int:pk>/', views.checkout_success, name='longclaw_checkout_success'),
+    path('checkout/success/<int:pk>/', views.checkout_success, name='longclaw_checkout_success'),
 ]
