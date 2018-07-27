@@ -25,6 +25,7 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=256, blank=True, null=True)
 
     # contact info
+    name = models.CharField(max_length=256, blank=True, null=True)
     email = models.EmailField(max_length=128, blank=True, null=True)
     ip_address = models.GenericIPAddressField(blank=True, null=True)
 
